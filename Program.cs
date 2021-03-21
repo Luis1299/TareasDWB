@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Tarea.Models;
+using Tarea.Services;
 
 namespace Tarea
 {
@@ -8,6 +9,7 @@ namespace Tarea
     {
         static void Main(string[] args)
         {
+            /*
             NorthwindContext dbContext = new NorthwindContext();
 
             // SELECT * FROM Products
@@ -18,6 +20,16 @@ namespace Tarea
                 // Imprimir en consola el Id y el nombre del producto
                 Console.WriteLine(product.ProductId + " - "+ product.ProductName);
             }
+            */
+
+            var products = new ProductSC().GetAllProducts().ToList();
+
+            foreach (var product in products)
+            {
+                // Imprimir en consola el Id y el nombre del producto
+                Console.WriteLine(product.ProductId + " - " + product.ProductName);
+            }
+
             Console.ReadLine();
 
         }

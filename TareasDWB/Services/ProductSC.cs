@@ -6,7 +6,7 @@ using Tarea.Models;
 
 namespace Tarea.Services
 {
-    class ProductSC: BaseSC
+    public class ProductSC: BaseSC
     {
         public Product GetProductById(int id)
         {
@@ -28,6 +28,13 @@ namespace Tarea.Services
         {
             var product = GetProductById(id);
             northwindContext.Products.Remove(product);
+            northwindContext.SaveChanges();
+        }
+
+        public void UpdateProductName(int id, string name)
+        {
+            var product = GetProductById(id);
+            product.ProductName = name;
             northwindContext.SaveChanges();
         }
 

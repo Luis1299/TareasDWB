@@ -6,7 +6,7 @@ using Tarea.Models;
 
 namespace Tarea.Services
 {
-    class CustomerSC: BaseSC
+    public class CustomerSC: BaseSC
     {
 
         public IQueryable<Customer> GetAllCustomer()
@@ -22,6 +22,20 @@ namespace Tarea.Services
         public void AddCustomer(Customer newCustomer)
         {
             northwindContext.Customers.Add(newCustomer);
+        }
+
+        public void DeleteCustomerById(string id)
+        {
+            var customer = GetCustomerById(id);
+            northwindContext.Customers.Remove(customer);
+            northwindContext.SaveChanges();
+        }
+
+        public void UpdateCustomerContactName(string id, string name)
+        {
+            var customer = GetCustomerById(id);
+            customer.ContactName = name;
+            northwindContext.SaveChanges();
         }
 
     }

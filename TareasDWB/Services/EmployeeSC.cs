@@ -6,7 +6,7 @@ using Tarea.Models;
 
 namespace Tarea.Services
 {
-    class EmployeeSC : BaseSC
+    public class EmployeeSC : BaseSC
     {
         public Employee GetEmployeeById(int id)
         {
@@ -35,5 +35,20 @@ namespace Tarea.Services
             currentEmployee.FirstName = newName;
             northwindContext.SaveChanges();
         }
+
+        public void AddEmployee(Employee newEmployee)
+        {
+            // notación parecida a JSON
+            var newEmployeeRegister = new Employee()
+            {
+                FirstName = newEmployee.FirstName,
+                LastName = newEmployee.LastName
+            };
+
+
+            northwindContext.Add(newEmployeeRegister);
+            northwindContext.SaveChanges();
+        }
+
     }
 }

@@ -6,7 +6,7 @@ using Tarea.Models;
 
 namespace Tarea.Services
 {
-    class OrderSC: BaseSC
+    public class OrderSC: BaseSC
     {
         public IQueryable<Order> GetAllOrders()
         {

@@ -22,6 +22,8 @@ namespace Tarea.Services
         public void AddCustomer(Customer newCustomer)
         {
             northwindContext.Customers.Add(newCustomer);
+            northwindContext.SaveChanges();
+
         }
 
         public void DeleteCustomerById(string id)

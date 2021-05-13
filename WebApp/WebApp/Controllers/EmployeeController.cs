@@ -22,7 +22,15 @@ namespace WebApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var employeesList = employees.GetAllEmployees().ToList();
+            var employeesList = employees.GetAllEmployees().Select( r => new Employee
+            {
+                EmployeeId = r.EmployeeId,
+                FirstName = r.FirstName,
+                LastName = r.LastName,
+                BirthDate = r.BirthDate,
+                Address = r.Address,
+                Country = r.Country
+            }).ToList();
             return Ok(employeesList);
         }
 

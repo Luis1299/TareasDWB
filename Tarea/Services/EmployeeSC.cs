@@ -38,11 +38,13 @@ namespace Tarea.Services
 
         public void AddEmployee(Employee newEmployee)
         {
-            // notación parecida a JSON
             var newEmployeeRegister = new Employee()
             {
                 FirstName = newEmployee.FirstName,
-                LastName = newEmployee.LastName
+                LastName = newEmployee.LastName,
+                BirthDate = newEmployee.BirthDate,
+                Address = newEmployee.Address,
+                Country = newEmployee.Country
             };
 
 
